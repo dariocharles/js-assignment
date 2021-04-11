@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interacting with Form</title>
+</head>
+
+<body>
+    <h2>Please fill the form</h2>
+   
+
+    <form id="main-form" name="mainForm">
+        <fieldset>
+            <legend>Personal Information</legend>
+            <div>
+                Full Name:*
+                <input type="text" id="full-name" maxlength="50" autocomplete="off" name="fullName"
+                    placeholder="Full Name">
+            </div>
+            <div>
+                Email:
+                <input type="email" id="email" maxlength="50" name="email" autocomplete="off"
+                    placeholder="info@example.com">
+            </div>
+            <div>
+                Gender:
+                <br>
+               
+                <input type="radio" name="gender" id="male" checked value="m">
+                <label for="male">Male</label>
+               
+                <br>
+                <input type="radio" name="gender" id="female" value="f">
+                <label for="female">Female</label>
+            </div>
+        </fieldset>
+        <div>
+            
+            <!-- 
+                Event Handler
+                remember in between onlclick quotes we can write pure JS code: Inline JavaScript 
+
+                You can use Event Listener (refer to our previous lectures)
+            -->
+            <input type="button" value="Submit" onclick="userInfo();">
+
+            <!-- We can also use the following code with PHP/Python module -->
+            <!--  
+                    <button type="submit" onclick="userInfo()">Submit</button>
+            -->
+            <input type="reset" value="Clear">
+        </div>
+    </form>
+<!-- END OF FORM!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+
+
+
+
+    <div>
+        Full Name: <span id="full_name"></span>
+        <br>
+        Email: <span id="email_address"></span>
+        <br>
+        Gender: <span id="gen"></span>
+        <p id="thanks"></p>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        function userInfo() {
+                       
+            var myForm = document.mainForm;
+
+          
+            let fullName = myForm.fullName.value;
+            
+            
+            if (fullName == null || fullName == "") {
+                alert("Please enter your full name!");
+            } else {
+               
+                let email = myForm.email.value;
+
+           
+                document.getElementById("full_name").innerText = fullName;
+                document.getElementById("email_address").innerText = email;
+
+                if (myForm.gender.value == "m") {
+                    document.getElementById('thanks').innerHTML = "<em>Thank you Mr. " + fullName + "</em>";
+                    document.getElementById('gen').innerHTML = "Male";
+                } else {
+                    document.getElementById('thanks').innerHTML = "Thank you Ms. " + fullName;
+                    document.getElementById('gen').innerHTML = "Female";
+                } 
+            } 
+        } 
+    </script>
+</body>
+
+</html>

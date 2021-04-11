@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <title>JS Assignment - Dario Charles</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="excel.html">Excel</a></li>
+      </ul>
+    </nav>
+  </header>
+ 
+  <h2>Please fill the form</h2>
+   
+
+  <form id="main-form" name="mainForm">
+      <fieldset>
+          <legend>Personal Information</legend>
+          <div>
+              First Name:
+              <input type="text" id="f-name" maxlength="25" autocomplete="off" name="fname"
+                  placeholder="First Name">
+          </div>
+          <div>
+              Last Name:
+              <input type="text" id="l-name" maxlength="25" autocomplete="off" name="lname"
+                  placeholder="Last Name">
+          </div>
+          <div>
+              Email:
+              <input type="email" id="email" maxlength="40" name="email" autocomplete="off"
+                  placeholder="info@example.com">
+          </div>
+          <div>
+              Address:
+              <input type="text" id="address" maxlength="50" name="address" autocomplete="off"
+                  placeholder="Address">
+          </div>
+          <div>
+              City:
+              <input type="text" id="city" maxlength="40" name="city" autocomplete="off"
+                  placeholder="City">
+          </div>
+          <div>
+              Province:
+              <input type="text" id="province" maxlength="40" name="province" autocomplete="off"
+                  placeholder="Province">
+          </div>
+          <div>
+              Membership:
+              <br>
+             
+              <input type="radio" name="membership" checked id="premium" value="p">
+              <label for="premium">Premium</label>
+             
+              <br>
+              <input type="radio" name="membership" id="standard" value="s">
+              <label for="premium">Standard</label>
+             
+              <br>
+              <input type="radio" name="membership" id="basic" value="b">
+              <label for="premium">Basic</label>
+             
+              <br>
+          </div>
+      </fieldset>
+      <div>
+        <input type="button" value="Submit" onclick="userInfo();">
+        <input type="reset" value="Clear">
+      </div>
+  </form>
+
+  <div>
+      Full Name: <span id="full_name"></span>
+      <br>
+      Email: <span id="email_address"></span>
+      <br>
+      Address: <span id="address_address"></span>
+      <br>
+      City: <span id="city_city"></span>
+      <br>
+      Province: <span id="prov_prov"></span>
+      <br>
+      Membership: <span id="mem"></span>
+  </div>
+
+  <footer>
+    <p>Canadian Business College - JavaScript Final Assignment - Dario Charles</p>
+  </footer>
+
+
+  <script src="javascript/script.js"></script>
+</body>
+</html>
