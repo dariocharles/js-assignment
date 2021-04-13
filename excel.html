@@ -1,65 +1,118 @@
+
+<!-- REAL DOCUMENT WORKING ON -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
- <meta charset="UTF-8">
- <title>JS Assignment - Your Full Name</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Assignment - Dario Charles</title>
 </head>
 
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="excel.html">Excel</a></li>
-      </ul>
-    </nav>
-  </header>
- 
-  <main>
-    <h1>Excel Functions</h1>
-    <form id="main-form" name="mainform">
-        <label for="numbers">Enter your numbers separated by spaces</label>
-        <input type="text" id="numbers" >
-        <br>
-
-        <input type="radio" checked id="autosum" name="math">
-        <p>AutoSum</p>
-        <br>
-
-        <input type="radio" id="average" name="math">
-        <p>Average</p>
-        <br>
-
-        <input type="radio" id="max" name="math">
-        <p>Max</p>
-        <br>
-
-        <input type="radio" id="min" name="math">
-        <p>Min</p>
-        <br>
-
-        <button type="">Calculate</button>
-
-        Result
-    
+    <form>
+        Enter your numbers separated by spaces:
+        <input type="text" id="numbers" title="Please input your numbers with spaces">
+        <br>Please Select your operation:<br>
+        
+        <input type="radio" id="sum" name="math" checked value="1">AutoSum<br>
+        <input type="radio" id="avg" name="math" value="2">Average<br>
+        <input type="radio" id="max" name="math" value="3">Max<br>
+        <input type="radio" id="min" name="math" value="3">Min
+        <div>
+            <button type="button" id="button">Calculate</button>
+        </div>
     </form>
 
+    <div>The result: <span id="span"></span></div>
 
 
 
-    <div id="output">
-    <!-- here is where the user should see the result -->
-    </div>
-  </main>
+<script>
+document.getElementById("button").addEventListener("click", myExcelFuns);
 
-  <footer>
-    <p>Canadian Business College - JavaScript Final Assignment - Dario Charles</p>
-  </footer>
+function myExcelFuns() {
+    
+    var userInputStr = document.getElementById("numbers").value;
+
+    if (userInputStr) {
+        console.log(userInputStr);
+        userInputStr = userInputStr.trim();
+        let userNumberArray = userInputStr.split(" ");
+        console.log(userNumberArray);
+        let result;
 
 
-  <script src="javascript/script.js"></script>
+        let emptyArray = [];
+        for (let i = 0; i < userNumberArray.length; i++) {  
+            let newArrayValues = parseInt(userNumberArray[i]);
+            emptyArray.push(newArrayValues);
+        }    
+        console.log(emptyArray);    
+
+        // Figuring out spaces
+            // let finalArray;
+            //     if (emptyArray=== Number && emptyArray === !" "){
+            //         for (let i = 0; i < emptyArray.length; i++) {
+            //             // emptyArray.push()
+            //             // finalArray.push(emptyArray);
+            //             console.log("Scooby Doo");
+            //         }
+            //         //  emptyArray.push();
+            //         //  console.log("Scooby Doo");
+            //      } else {
+            //          alert("Only one space between numbers please!")
+            //       }
+            // }
+
+
+                        //    Sum
+                        if (document.getElementById("sum").checked) {
+                            
+                           result = 0;
+                            for (var i = 0; i < emptyArray.length; i++) {
+                                result += emptyArray[i];
+                            }
+                            console.log(result);
+
+                        // Average
+                        } else if (document.getElementById("avg").checked) {
+                            
+                            let addUp = 0;
+                            for (var i = 0; i < emptyArray.length; i++) {
+                                addUp += emptyArray[i];
+                                result = addUp / emptyArray.length;
+                            }                            
+                            console.log(result);
+                        
+                        // Max
+                        } else if (document.getElementById("max").checked) {
+                            
+                            let min = emptyArray.sort((a,b) => a-b);
+                            let max = min.reverse();
+                            console.log(max);
+                            result = max[0];
+
+
+                        // Min
+                        } else {
+                            let min = emptyArray.sort((a,b) => a-b);
+                            console.log(min);
+                            result = min[0];
+                        
+                        }
+                                     
+                        document.getElementById("span").innerHTML = result; 
+    } else {
+        alert("Please input your numbers with spaces!");
+    } 
+} 
+</script>
+
+
+
+    <!-- external link -->
 </body>
-</html>
 
+</html>
